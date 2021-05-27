@@ -1,5 +1,5 @@
 
-resource "aws_subnet" "private_subnets" 
+resource "aws_subnet" "private_subnets" {
     count = "${length(var.private_subnets)}"
     vpc_id = "${var.vpc_id}"
     cidr_block = "${lookup(var.private_subnets[count.index],"cidr")}"
